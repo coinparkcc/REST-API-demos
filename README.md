@@ -1,1 +1,2 @@
-# REST-API-demos
+# README
+CoinPark REST API 使用示例参考。
