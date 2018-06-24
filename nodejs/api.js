@@ -27,7 +27,7 @@ let doGet = function (url, callBack) {
 };
 
 let getSign = function (data) {
-    var secret = '您申请的apikey私钥';
+    var secret = 'your apikey secret';
     var sign = CryptoJS.HmacMD5(JSON.stringify(data), secret).toString();
     return sign;
 };
@@ -35,7 +35,7 @@ let getSign = function (data) {
 let doApiRequestWithApikey = function (url, cmds, callBack) {
     let form = {
         cmds: JSON.stringify(cmds),
-        apikey: '您申请的apikey',
+        apikey: 'your apikey',
         sign: getSign(cmds)
     };
 
@@ -57,15 +57,14 @@ let doApiRequest = function (url, cmds, callBack) {
 let getDepth = function (pair, size) {
     let _func_name_ = 'getDepth';
 
-    //GET方式
+    //GET
     let get_url = 'https://api.coinpark.cc/v1/mdata?cmd=depth&pair=' + pair + '&size=' + size;
     doGet(get_url, function (res) {
-        //TODO: 业务逻辑
-        console.log('%s: GET请求结果：', _func_name_, JSON.stringify(res));
+        console.log('%s: GET return：', _func_name_, JSON.stringify(res));
     });
 
 
-    //POST方式
+    //POST
     let cmds = [
         {
             cmd: "api/depth",
@@ -77,8 +76,7 @@ let getDepth = function (pair, size) {
     ];
     let url = 'https://api.coinpark.cc/v1/mdata';
     doApiRequest(url, cmds, function (res) {
-        //TODO: 业务逻辑
-        console.log('%s: POST请求结果：', _func_name_, JSON.stringify(res));
+        console.log('%s: POST return：', _func_name_, JSON.stringify(res));
     });
 };
 
@@ -97,8 +95,7 @@ let getDeals = function (pair, size) {
     ];
     let url = 'https://api.coinpark.cc/v1/mdata';
     doApiRequest(url, cmds, function (res) {
-        //TODO: 业务逻辑
-        console.log('%s: 请求结果：', _func_name_, JSON.stringify(res));
+        console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
 };
 
@@ -118,8 +115,7 @@ let getKline = function (pair, period, size) {
     ];
     let url = 'https://api.coinpark.cc/v1/mdata';
     doApiRequest(url, cmds, function (res) {
-        //TODO: 业务逻辑
-        console.log('%s: 请求结果：', _func_name_, JSON.stringify(res));
+        console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
 };
 
@@ -137,8 +133,7 @@ let getTicker = function (pair) {
 
     let url = 'https://api.coinpark.cc/v1/mdata';
     doApiRequest(url, cmds, function (res) {
-        //TODO: 业务逻辑
-        console.log('%s: 请求结果：', _func_name_, JSON.stringify(res));
+        console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
 };
 
@@ -156,8 +151,7 @@ let getMarket = function (pair) {
 
     let url = 'https://api.coinpark.cc/v1/mdata';
     doApiRequest(url, cmds, function (res) {
-        //TODO: 业务逻辑
-        console.log('%s: 请求结果：', _func_name_, JSON.stringify(res));
+        console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
 };
 
@@ -173,8 +167,7 @@ let getMarketAll = function () {
 
     let url = 'https://api.coinpark.cc/v1/mdata';
     doApiRequest(url, cmds, function (res) {
-        //TODO: 业务逻辑
-        console.log('%s: 请求结果：', _func_name_, JSON.stringify(res));
+        console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
 };
 
@@ -196,8 +189,7 @@ let getUserOrderPending = function (pair, account_type, page, size) {
 
     let url = 'https://api.coinpark.cc/v1/orderpending';
     doApiRequestWithApikey(url, cmds, function (res) {
-        //TODO: 业务逻辑
-        console.log('%s: 请求结果：', _func_name_, JSON.stringify(res));
+        console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
 };
 
@@ -217,8 +209,7 @@ let getUserOrderHistory = function (pair, account_type, page, size) {
     ];
     let url = 'https://api.coinpark.cc/v1/orderpending';
     doApiRequestWithApikey(url, cmds, function (res) {
-        //TODO: 业务逻辑
-        console.log('%s: 请求结果：', _func_name_, JSON.stringify(res));
+        console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
 };
 
@@ -242,8 +233,7 @@ let doTrade = function (trade_order) {
     ];
     let url = 'https://api.coinpark.cc/v1/orderpending';
     doApiRequestWithApikey(url, cmds, function (res) {
-        //TODO: 业务逻辑
-        console.log('%s: 请求结果：', _func_name_, JSON.stringify(res));
+        console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
 };
 
@@ -260,8 +250,7 @@ let doCancelTrade = function (orders_id) {
     ];
     let url = 'https://api.coinpark.cc/v1/orderpending';
     doApiRequestWithApikey(url, cmds, function (res) {
-        //TODO: 业务逻辑
-        console.log('%s: 请求结果：', _func_name_, JSON.stringify(res));
+        console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
 };
 
@@ -278,34 +267,33 @@ let getUserAssets = function () {
     ];
     let url = 'https://api.coinpark.cc/v1/transfer';
     doApiRequestWithApikey(url, cmds, function (res) {
-        //TODO: 业务逻辑
-        console.log('%s: 请求结果：', _func_name_, JSON.stringify(res));
+        console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
 };
 
 let doTest = function () {
-    //深度
+    //depth
     getDepth('LTC_BTC', 10);
-    //成交历史
+    //deals
     getDeals('LTC_BTC', 10);
     //ticker
     getTicker('LTC_BTC');
-    //市场行情
+    //market
     getMarket('LTC_BTC');
-    //市场行情，全币种
+    //all markets
     getMarketAll();
-    //k线
+    //kline
     getKline('LTC_BTC', '1min', 10);
 
 
-    // 用户委托列表
+    // user order pending
     getUserOrderPending('EOS_BTC', 0, 1, 10);
-    // 用户委托列表
+    // user order history
     getUserOrderHistory('BIX_BTC', 0, 1, 10);
-    // 用户普通资产
+    // user assets
     getUserAssets();
 
-    //用户下单
+    //place an order
     let trade_order = {
         account_type: 0,
         order_type: 2,
@@ -318,7 +306,7 @@ let doTest = function () {
     };
     // doTrade(trade_order);
 
-    //用户撤单
+    //cancel an order
     // doCancelTrade(7790955);//orders_id
 };
 
