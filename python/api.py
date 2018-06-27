@@ -23,11 +23,9 @@ api_secret = 'your api_secret'
 account_type = 0 
 order_type = 2 
 order_side = 1 
-pair = 'BIX_ETH' 
-pay_bix = 1 
+pair = 'BIX_ETH'
 price = 0.00081600 
-amount = 0.1 
-money = 0.00001688
+amount = 0.1
 
 cmds = [
     {
@@ -37,10 +35,8 @@ cmds = [
             'account_type':account_type,
             'order_type':order_type,
             'order_side':order_side,
-            'pay_bix':pay_bix,
             'price':price,
-            'amount':amount,
-            'money':money
+            'amount':amount
         }
     }
 ]

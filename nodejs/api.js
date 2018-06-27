@@ -59,6 +59,7 @@ let getDepth = function (pair, size) {
 
     //GET
     let get_url = 'https://api.coinpark.cc/v1/mdata?cmd=depth&pair=' + pair + '&size=' + size;
+
     doGet(get_url, function (res) {
         console.log('%s: GET return：', _func_name_, JSON.stringify(res));
     });
@@ -180,7 +181,6 @@ let getUserOrderPending = function (pair, account_type, page, size) {
             cmd: "orderpending/orderPendingList",
             body: {
                 pair: pair,
-                account_type: account_type,
                 page: page,
                 size: size
             }
@@ -201,7 +201,6 @@ let getUserOrderHistory = function (pair, account_type, page, size) {
             cmd: "orderpending/orderHistoryList",
             body: {
                 pair: pair,
-                account_type: account_type,
                 page: page,
                 size: size
             }
@@ -224,10 +223,8 @@ let doTrade = function (trade_order) {
                 account_type: trade_order.account_type,
                 order_type: trade_order.order_type,
                 order_side: trade_order.order_side,
-                pay_bix: trade_order.pay_bix,
                 price: trade_order.price,
-                amount: trade_order.amount,
-                money: trade_order.money,
+                amount: trade_order.amount
             }
         }
     ];
@@ -299,12 +296,10 @@ let doTest = function () {
         order_type: 2,
         order_side: 1,
         pair: 'BIX_BTC',
-        pay_bix: 0,
         price: 0.00001688,
-        amount: 1,
-        money: 0.00001688
+        amount: 1
     };
-    // doTrade(trade_order);
+    doTrade(trade_order);
 
     //cancel an order
     // doCancelTrade(7790955);//orders_id
