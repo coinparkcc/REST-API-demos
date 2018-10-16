@@ -58,7 +58,7 @@ let getDepth = function (pair, size) {
     let _func_name_ = 'getDepth';
 
     //GET
-    let get_url = 'https://api.coinpark.cc/v1/mdata?cmd=depth&pair=' + pair + '&size=' + size;
+    let get_url = 'https://api.coinpark.com/v1/mdata?cmd=depth&pair=' + pair + '&size=' + size;
 
     doGet(get_url, function (res) {
         console.log('%s: GET return：', _func_name_, JSON.stringify(res));
@@ -75,7 +75,7 @@ let getDepth = function (pair, size) {
             }
         }
     ];
-    let url = 'https://api.coinpark.cc/v1/mdata';
+    let url = 'https://api.coinpark.com/v1/mdata';
     doApiRequest(url, cmds, function (res) {
         console.log('%s: POST return：', _func_name_, JSON.stringify(res));
     });
@@ -94,7 +94,7 @@ let getDeals = function (pair, size) {
             }
         }
     ];
-    let url = 'https://api.coinpark.cc/v1/mdata';
+    let url = 'https://api.coinpark.com/v1/mdata';
     doApiRequest(url, cmds, function (res) {
         console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
@@ -114,7 +114,7 @@ let getKline = function (pair, period, size) {
             }
         }
     ];
-    let url = 'https://api.coinpark.cc/v1/mdata';
+    let url = 'https://api.coinpark.com/v1/mdata';
     doApiRequest(url, cmds, function (res) {
         console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
@@ -132,7 +132,7 @@ let getTicker = function (pair) {
         }
     ];
 
-    let url = 'https://api.coinpark.cc/v1/mdata';
+    let url = 'https://api.coinpark.com/v1/mdata';
     doApiRequest(url, cmds, function (res) {
         console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
@@ -150,7 +150,7 @@ let getMarket = function (pair) {
         }
     ];
 
-    let url = 'https://api.coinpark.cc/v1/mdata';
+    let url = 'https://api.coinpark.com/v1/mdata';
     doApiRequest(url, cmds, function (res) {
         console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
@@ -166,7 +166,7 @@ let getMarketAll = function () {
         }
     ];
 
-    let url = 'https://api.coinpark.cc/v1/mdata';
+    let url = 'https://api.coinpark.com/v1/mdata';
     doApiRequest(url, cmds, function (res) {
         console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
@@ -187,7 +187,7 @@ let getUserOrderPending = function (pair, account_type, page, size) {
         }
     ];
 
-    let url = 'https://api.coinpark.cc/v1/orderpending';
+    let url = 'https://api.coinpark.com/v1/orderpending';
     doApiRequestWithApikey(url, cmds, function (res) {
         console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
@@ -206,7 +206,7 @@ let getUserOrderHistory = function (pair, account_type, page, size) {
             }
         }
     ];
-    let url = 'https://api.coinpark.cc/v1/orderpending';
+    let url = 'https://api.coinpark.com/v1/orderpending';
     doApiRequestWithApikey(url, cmds, function (res) {
         console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
@@ -228,7 +228,7 @@ let doTrade = function (trade_order) {
             }
         }
     ];
-    let url = 'https://api.coinpark.cc/v1/orderpending';
+    let url = 'https://api.coinpark.com/v1/orderpending';
     doApiRequestWithApikey(url, cmds, function (res) {
         console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
@@ -245,7 +245,7 @@ let doCancelTrade = function (orders_id) {
             }
         }
     ];
-    let url = 'https://api.coinpark.cc/v1/orderpending';
+    let url = 'https://api.coinpark.com/v1/orderpending';
     doApiRequestWithApikey(url, cmds, function (res) {
         console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
@@ -262,7 +262,7 @@ let getUserAssets = function () {
             }
         }
     ];
-    let url = 'https://api.coinpark.cc/v1/transfer';
+    let url = 'https://api.coinpark.com/v1/transfer';
     doApiRequestWithApikey(url, cmds, function (res) {
         console.log('%s: return：', _func_name_, JSON.stringify(res));
     });
